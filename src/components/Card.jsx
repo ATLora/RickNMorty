@@ -1,79 +1,103 @@
 import styled from "styled-components";
 
-const CardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  height: 300px;
-  padding: 0%;
-  margin: 25px;
-  border: 2px solid black;
-  border-radius: 5%;
-  background-color: #a8b0c2;
-`;
-
-const TopContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  //border: 1px solid black;
-  position: relative;
-  margin: 0;
-  padding: 0%;
-`;
-
-const CardPic = styled.img`
-  max-width: 100%;
-  max-height: 60%;
-  margin: 2.5%;
-`;
-
-const CardClose = styled.button`
+const CardConteiner = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  background: transparent;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid green;
+  backdrop-filter: blur(5px);
+  margin: 1rem;
+  box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.75);
+`;
+
+const Title = styled.h2`
+  font-family: cursive;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
   position: absolute;
-  margin-top: 1.5%;
-  margin-right: 1.5%;
-  top: 0%;
-  right: 0%;
-  width: 2em;
-  height: 2em;
-  background-color: red;
-  border-radius: 15%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  margin-top: 250px;
+  background-color: #00800076;
 `;
 
-const CardName = styled.h2`
-  display: flex;
-  margin: 1%;
-  font-weight: 550;
-  color: #1c9931b5;
+const Button = styled.button`
+  display: inline-block;
+  background-color: ${(props) => (props.close ? "transparent" : "black")};
+  border-radius: 5px;
+  width: fit-content;
+  height: fit-content;
+  filter: brightness(0.8);
+  margin: 5px;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.5);
+    transform: scale(1.2);
+  }
 `;
 
-const CardInfoContainer = styled.div`
+const ButtonConteiner = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: right;
 `;
 
 const CardInfo = styled.h2`
-  font-size: large;
-  font-weight: 500;
+  font-family: cursive;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: white;
 `;
 
-export default function Card({ onClose, name, species, gender, image, id }) {
+const Image = styled.img`
+  object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+  border-radius: 10px;
+`;
+
+const imgDiv = styled.div`
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+`;
+
+export default function Card({
+  onClose,
+  name,
+  species,
+  gender,
+  image,
+  id,
+  status,
+  origin,
+  onFavorites,
+}) {
   return (
-    <CardContainer>
-      <TopContainer>
-        <CardName>{name}</CardName>
-        <CardClose onClick={() => onClose(id)}>X</CardClose>
-      </TopContainer>
-      <CardPic src={image} alt="" />
-      <CardInfoContainer>
-        <CardInfo>{species}</CardInfo>
-        <CardInfo>{gender}</CardInfo>
-      </CardInfoContainer>
-    </CardContainer>
+    <CardConteiner>
+      <ButtonConteiner>
+        <Button onClick={onFavorites}>💛</Button>
+        <Button onClick={() => onClose(id)}>❌</Button>
+      </ButtonConteiner>
+      <imgDiv>
+        <Image src={image} alt=""></Image>
+        <Title>{name}</Title>
+      </imgDiv>
+
+      <CardInfo>Status: {status}</CardInfo>
+      <CardInfo>Species: {species}</CardInfo>
+      <CardInfo>Gender: {gender}</CardInfo>
+      <CardInfo>Origin: {origin}</CardInfo>
+    </CardConteiner>
   );
 }
