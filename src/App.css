@@ -3,5 +3,5 @@
   background-image: url("./Assets/SpaceBG.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: auto;
+  height: 100vh;
 }

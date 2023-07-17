@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const CardConteiner = styled.div`
   display: flex;
@@ -91,7 +92,9 @@ export default function Card({
       </ButtonConteiner>
       <imgDiv>
         <Image src={image} alt=""></Image>
-        <Title>{name}</Title>
+        <Link to={`/detail/${id}`}>
+          <Title>{name}</Title>
+        </Link>
       </imgDiv>
 
       <CardInfo>Status: {status}</CardInfo>
