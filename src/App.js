@@ -6,6 +6,7 @@ import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 import About from "./Views/About";
 import Detail from "./Views/Detail";
+import Form from "./Views/Form";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -34,6 +35,7 @@ function App() {
     <div className="App" style={{ padding: "25px" }}>
       <Nav onSearch={onSearch} />
       <Routes>
+        <Route path="/" element={<Form />} />
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}

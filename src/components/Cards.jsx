@@ -9,17 +9,16 @@ const CardsContainer = styled.div`
 export default function Cards({ characters, onClose }) {
   return (
     <CardsContainer>
-      {characters.map((character) => {
+      {characters.map(({ id, name, species, gender, image, status }) => {
         return (
           <Card
-            key={character.id}
-            id={character.id}
-            name={character.name}
-            species={character.species}
-            gender={character.gender}
-            image={character.image}
-            status={character.status}
-            origin={character.origin.name}
+            key={id}
+            id={id}
+            name={name}
+            species={species}
+            gender={gender}
+            image={image}
+            status={status}
             onClose={onClose}
             onFavorites={() => window.alert("Emulamos que tenemos un favorito")}
           />

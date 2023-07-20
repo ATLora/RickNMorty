@@ -81,7 +81,6 @@ export default function Card({
   image,
   id,
   status,
-  origin,
   onFavorites,
 }) {
   return (
@@ -100,7 +99,6 @@ export default function Card({
       <CardInfo>Status: {status}</CardInfo>
       <CardInfo>Species: {species}</CardInfo>
       <CardInfo>Gender: {gender}</CardInfo>
-      <CardInfo>Origin: {origin}</CardInfo>
     </CardConteiner>
   );
 }

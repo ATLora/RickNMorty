@@ -1,6 +1,9 @@
+import Yo from "../Assets/Yo.jpeg";
+
 export default function About() {
   return (
     <div>
+      <img src={Yo} alt="xxx" />
       <h1>Que estoy viendo?</h1>
       <p>
         Aqui va algun texto extensivo sobre que pretende conseguir esta
