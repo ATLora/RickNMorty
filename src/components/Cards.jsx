@@ -20,7 +20,6 @@ export default function Cards({ characters, onClose }) {
             image={image}
             status={status}
             onClose={onClose}
-            onFavorites={() => window.alert("Emulamos que tenemos un favorito")}
           />
         );
       })}
