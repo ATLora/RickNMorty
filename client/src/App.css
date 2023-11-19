@@ -1,8 +1,13 @@
-.App {
+/* .App {
   text-align: center;
   background-image: url("./Assets/SpaceBG.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
   height: fit-content;
+} */
+
+.App {
+  background-color: black;
+  min-height: 100vh;
 }

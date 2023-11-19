@@ -1,28 +1,66 @@
-import styled from "styled-components";
+import React, { useState } from "react";
+import validation from "../utils/validation.js";
 
-const Conteiner = styled.div`
-  background-color: grey;
-  width: 300px;
-  height: 500px;
-  margin: auto;
-  margin-top: 120px;
-`;
+const Form = ({ login }) => {
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
 
-export default function Form() {
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (event) => {
+    setUserData({
+      ...userData,
+      [event.target.name]: event.target.value,
+    });
+
+    setErrors(
+      validation({
+        ...userData,
+        [event.target.name]: event.target.value,
+      })
+    );
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    login(userData);
+  };
+
   return (
-    <Conteiner>
+    <div>
       <form>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input type="text" name="email" />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input type="password" name="password" />
-        </div>
+        <label>EMAIL: </label>
+        <input
+          type="email"
+          value={userData.email}
+          placeholder="email"
+          name="email"
+          onChange={handleChange}
+        />
+        <p>{errors.email}</p>
 
-        <button type="submit">Submit</button>
+        <label>PASSWORD: </label>
+        <input
+          type="password"
+          value={userData.password}
+          placeholder="password"
+          name="password"
+          onChange={handleChange}
+        />
+        <p>{errors.password}</p>
+
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          /* disabled={Object.values(errors).some((error) => error)} */
+        >
+          Submit
+        </button>
       </form>
-    </Conteiner>
+    </div>
   );
-}
+};
+
+export default Form;

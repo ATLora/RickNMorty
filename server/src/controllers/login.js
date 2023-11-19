@@ -2,12 +2,12 @@ const users = require("../utils/users");
 
 const Login = (req, res) => {
   const { email, password } = req.query;
-  const access = false;
+  let access = false;
   users.forEach((user) => {
     if (user.email === email && user.password === password) {
       access = true;
     }
-    res.json(access);
+    return res.json(access);
   });
 };
 
