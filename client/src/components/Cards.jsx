@@ -1,14 +1,8 @@
 import Card from "./Card";
-import styled from "styled-components";
-
-const CardsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-`;
 
 export default function Cards({ characters, onClose }) {
   return (
-    <CardsContainer>
+    <div>
       {characters.map(({ id, name, species, gender, image, status }) => {
         return (
           <Card
@@ -23,6 +17,6 @@ export default function Cards({ characters, onClose }) {
           />
         );
       })}
-    </CardsContainer>
+    </div>
   );
 }

@@ -1,13 +1,7 @@
 import { connect, useDispatch } from "react-redux";
 import Card from "../components/Card";
-import styled from "styled-components";
 import { filterCards, orderCards } from "../Redux/actions";
 import { useState } from "react";
-
-const CardsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-`;
 
 const Favorites = (props) => {
   const dispatch = useDispatch();
@@ -24,7 +18,7 @@ const Favorites = (props) => {
   };
 
   return (
-    <CardsContainer>
+    <div>
       <select onChange={handleOrder}>
         <option value="A">Ascendente</option>
         <option value="D">Descendente</option>
@@ -49,7 +43,7 @@ const Favorites = (props) => {
           />
         );
       })}
-    </CardsContainer>
+    </div>
   );
 };
 
