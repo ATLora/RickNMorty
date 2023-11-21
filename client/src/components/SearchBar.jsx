@@ -19,9 +19,9 @@ export default function SearchBar({ onSearch }) {
       />
       <button
         onClick={() => onSearch(id)}
-        className="text-gray-200 text-lg border-2 border-green-600 bg-green-500 hover:bg-green-600 hover:border-green-700 p-1 rounded-sm"
+        className="text-gray-200 text-lg border-2 border-green-600 bg-green-500 hover:bg-green-600 hover:border-green-700 py-1 px-2 rounded-sm"
       >
-        Agregar
+        Add
       </button>
     </div>
   );
