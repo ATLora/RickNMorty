@@ -18,8 +18,8 @@ const validation = (dataForm) => {
     errors.email = "No puede ser vacio";
   }
 
-  if (dataForm.email.length > 5) {
-    errors.email = "Debe tener menos de 5 caracteres";
+  if (dataForm.email.length > 35) {
+    errors.email = "Debe tener menos de 35 caracteres";
   }
 
   if (!regexPassword.test(dataForm.password)) {

@@ -31,7 +31,7 @@ const Form = ({ login }) => {
   };
 
   return (
-    <div className="bg-blue-300 h-screen w-full flex flex-col justify-evenly">
+    <div className="bg-blue-900 h-screen w-full flex flex-col justify-evenly">
       <div className="flex flex-row justify-center">
         <img
           src={title}
@@ -46,8 +46,10 @@ const Form = ({ login }) => {
           alt="Rick and Morty splash art"
           className="hidden md:block h-[500px] w-[500px]"
         />
-        <form className="border-2 border-slate-500 h-[500px] w-[325px] rounded-md bg-slate-400 shadow-xl flex flex-col justify-around">
-          <h1 className="flex flex-row justify-center text-2xl">Log In</h1>
+        <form className="border-2 border-slate-500 h-[500px] w-[325px] rounded-md bg-slate-400 shadow-xl flex flex-col justify-evenly">
+          <h1 className="flex flex-row justify-center text-2xl font-bold">
+            Log In
+          </h1>
           <div className=" my-2 mx-1 flex flex-col ">
             <label>EMAIL: </label>
             <input
@@ -58,7 +60,7 @@ const Form = ({ login }) => {
               onChange={handleChange}
               className="rounded p-1"
             />
-            <p>{errors.email}</p>
+            <p className="text-red-600 font-bold">{errors.email}</p>
           </div>
 
           <div className="my-2 mx-1 flex flex-col ">
@@ -71,14 +73,14 @@ const Form = ({ login }) => {
               onChange={handleChange}
               className="rounded p-1"
             />
-            <p>{errors.password}</p>
+            <p className="text-red-600 font-bold">{errors.password}</p>
           </div>
 
-          <div className=" flex flex-row justify-center p-8">
+          <div className=" flex flex-row justify-center p-6">
             <button
               type="submit"
               onClick={handleSubmit}
-              className="text-2xl hover:bg-blue-500 hover:border-black hover:border-2 hover:scale-110 p-2 rounded-sm"
+              className="text-2xl hover:bg-blue-600 hover:border-black hover:border-2 hover:scale-110 p-2 rounded-sm"
             >
               Submit
             </button>
