@@ -31,22 +31,23 @@ function App() {
     );
   }
 
-  const onSearch = (id) => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
+  const onSearch = async (id) => {
+    const character = (
+      await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+    ).data;
+    try {
+      if (character.name) {
+        setCharacters((oldChars) => [...oldChars, character]);
+      } else {
+        window.alert("¡No hay personajes con este ID!");
       }
-    );
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const onClose = (id) => {
-    const newChars = characters.filter(
-      (character) => character.id !== Number(id)
-    );
+    const newChars = characters.filter((character) => character.id !== id);
 
     setCharacters(newChars);
   };

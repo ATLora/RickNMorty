@@ -8,7 +8,7 @@ const postFav = (req, res) => {
 const deleteFav = (req, res) => {
   const { id } = req.params;
 
-  myFavorites = myFavorites.filter((char) => char.id !== Number(id));
+  myFavorites = myFavorites.filter((char) => char.id !== id);
   return res.json(myFavorites);
 };
 
