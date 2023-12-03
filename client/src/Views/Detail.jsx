@@ -25,7 +25,7 @@ export default function Detail() {
   // console.log(episode.length);
 
   return (
-    <div className="pt-8 w-full min-h-screen bg-blue-900 flex flex-row justify-center">
+    <div className="pt-8 w-full h-screen bg-blue-900 flex flex-row justify-center">
       <div className="flex flex-col justify-even items-center md:border-2 md:border-blue-950 md:rounded-md md:shadow-lg md:w-[1200px] md:h-[800px]">
         <h1 className="my-20 text-green-500 font-bold text-5xl">
           {character.name}
