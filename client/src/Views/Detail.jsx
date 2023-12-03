@@ -47,7 +47,12 @@ export default function Detail() {
               className="h-[400px] w-[380px] rounded-lg shadow-xl"
             />
           </div>
-          <div className="h-[400px] w-[300px] text-2xl text-gray-300 flex flex-col justify-around">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
+            className="h-[400px] w-[300px] text-2xl text-gray-300 flex flex-col justify-around"
+          >
             <h2>
               Species:{" "}
               <span className="text-green-300">{character.species}</span>
@@ -71,7 +76,7 @@ export default function Detail() {
               location:{" "}
               <span className="text-green-300">{character.location?.name}</span>
             </h2>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
