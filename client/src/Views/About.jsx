@@ -13,7 +13,7 @@ export default function About() {
           />
         </div>
         <div className="flex flex-col justify-start md:mt mt-10 md:ml-[50px]  lg:ml-[100px] md:w-[700px] w-[450px] md:h-[400px] md:mr-10">
-          <h1 className="text-green-500 text-4xl">Que estoy viendo?</h1>
+          <h1 className="text-green-500 text-4xl">What is this place?</h1>
           <p className="text-xl text-gray-300">
             This website propuse is as showcase and prove of concept, it was
             build unsing React for the Front, alonside TailwindCSS for the

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Detail() {
   const { id } = useParams();
@@ -32,7 +33,15 @@ export default function Detail() {
         </h1>
         <div className=" flex md:flex-row flex-col md:justify-center items-center">
           <div className="md:mr-[150px]">
-            <img
+            <motion.img
+              initial={{ scale: 0 }}
+              animate={{ rotate: 360, scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: 0.5,
+              }}
               src={character.image}
               alt={character.name}
               className="h-[400px] w-[380px] rounded-lg shadow-xl"
