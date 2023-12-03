@@ -36,27 +36,36 @@ const Card = (props) => {
   }, [myFavorites]);
 
   return (
-    <div>
-      <div>
+    <div className="border-2 border-blue-950 h-[480px] rounded-md shadow-lg">
+      <div className="mx-2 pt-2 flex justify-end">
         {isFav ? (
-          <button onClick={handleFavorite}>💛</button>
+          <button className="px-2 hover:scale-110" onClick={handleFavorite}>
+            💛
+          </button>
         ) : (
-          <button onClick={handleFavorite}>🤍</button>
+          <button className="px-2 hover:scale-110" onClick={handleFavorite}>
+            🤍
+          </button>
         )}
         {location.pathname !== "/favorites" && (
-          <button onClick={() => onClose(id)}>❌</button>
+          <button className="hover:scale-110" onClick={() => onClose(id)}>
+            ❌
+          </button>
         )}
       </div>
-      <div>
-        <img src={image} alt=""></img>
-        <Link to={`/detail/${id}`}>
-          <h2>{name}</h2>
-        </Link>
-      </div>
 
-      <h3>Status: {status}</h3>
-      <h3>Species: {species}</h3>
-      <h3>Gender: {gender}</h3>
+      <img src={image} alt="" className="p-4 rounded-md" />
+
+      <div className="flex flex-col justify-center items-center text-gray-300">
+        <Link to={`/detail/${id}`}>
+          <h2 className="text-xl text-green-500 hover:underline hover:scale-125">
+            {name}
+          </h2>
+        </Link>
+        <h3>Status: {status}</h3>
+        <h3>Species: {species}</h3>
+        <h3>Gender: {gender}</h3>
+      </div>
     </div>
   );
 };
