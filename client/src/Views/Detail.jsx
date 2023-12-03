@@ -20,14 +20,51 @@ export default function Detail() {
     return setCharacter({});
   }, [id]);
 
+  // Find a way to display the episodes
+  // let episode = character.episode;
+  // console.log(episode.length);
+
   return (
-    <div>
-      <img src={character.image} alt={character.name} />
-      <h1>Nombre: {character.name}</h1>
-      <h2>Species: {character.species}</h2>
-      <h2>Gender: {character.gender}</h2>
-      <h2>Origin: {character.origin?.name}</h2>
-      <h2>Status: {character.status}</h2>
+    <div className="pt-8 w-full min-h-screen bg-blue-900 flex flex-row justify-center">
+      <div className="flex flex-col justify-even items-center md:border-2 md:border-blue-950 md:rounded-md md:shadow-lg md:w-[1200px] md:h-[800px]">
+        <h1 className="my-20 text-green-500 font-bold text-5xl">
+          {character.name}
+        </h1>
+        <div className=" flex md:flex-row flex-col md:justify-center items-center">
+          <div className="md:mr-[150px]">
+            <img
+              src={character.image}
+              alt={character.name}
+              className="h-[400px] w-[380px] rounded-lg shadow-xl"
+            />
+          </div>
+          <div className="h-[400px] w-[300px] text-2xl text-gray-300 flex flex-col justify-around">
+            <h2>
+              Species:{" "}
+              <span className="text-green-300">{character.species}</span>
+            </h2>
+            {character.type !== "" && (
+              <h2>
+                Type: <span className="text-green-300">{character.type}</span>
+              </h2>
+            )}
+            <h2>
+              Gender: <span className="text-green-300">{character.gender}</span>
+            </h2>
+            <h2>
+              Origin:{" "}
+              <span className="text-green-300">{character.origin?.name}</span>
+            </h2>
+            <h2>
+              Status: <span className="text-green-300">{character.status}</span>
+            </h2>
+            <h2>
+              location:{" "}
+              <span className="text-green-300">{character.location?.name}</span>
+            </h2>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,2 +1,3 @@
 -> Functional log out button to the nav bar
 -> prevent the same character to be added twice
+-> Add all the infor to details

@@ -28,8 +28,29 @@ const getCharById = async (req, res) => {
   try {
     const { id } = req.params;
     const data = (await axios(URL + id)).data;
-    const { name, gender, species, origin, image, status } = data;
-    const character = { name, gender, species, origin, image, status, id };
+    const {
+      name,
+      gender,
+      status,
+      species,
+      type,
+      origin,
+      location,
+      image,
+      episode,
+    } = data;
+    const character = {
+      name,
+      gender,
+      species,
+      origin,
+      image,
+      status,
+      type,
+      location,
+      episode,
+      id,
+    };
     return character.name
       ? res.status(200).json(character)
       : res.status(404).send("Character not found");
