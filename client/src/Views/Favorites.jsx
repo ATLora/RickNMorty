@@ -2,6 +2,7 @@ import { connect, useDispatch } from "react-redux";
 import Card from "../components/Card";
 import { filterCards, orderCards } from "../Redux/actions";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Favorites = (props) => {
   const dispatch = useDispatch();
@@ -18,21 +19,43 @@ const Favorites = (props) => {
   };
 
   return (
-    <div className="pt-8 w-full min-h-screen bg-blue-900">
-      <div>
-        <select onChange={handleOrder}>
-          <option value="A">Ascendente</option>
-          <option value="D">Descendente</option>
-        </select>
-
-        <select onChange={handleFilter}>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Genderless">Genderless</option>
-          <option value="unknown">unknown</option>
-        </select>
+    <div className=" w-full min-h-screen bg-blue-900">
+      <div className="flex flex-row fixed">
+        <div className="h-[400px] w-[200px] bg-slate-500 border shadow-sm border-slate-600  flex  flex-col">
+          <h2>appearance</h2>
+          <select
+            onChange={handleOrder}
+            className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]"
+          >
+            <option value="A">Ascendente</option>
+            <option value="D">Descendente</option>
+          </select>
+          <h2>Gender</h2>
+          <select
+            onChange={handleFilter}
+            className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]"
+          >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Genderless">Genderless</option>
+            <option value="unknown">unknown</option>
+          </select>
+          <h2>Status</h2>
+          <select className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]">
+            <option value="Alive">Alive</option>
+            <option value="Dead">Dead</option>
+            <option value="unknown">unknown</option>
+          </select>
+          <h2>Species</h2>
+          <select className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]">
+            <option value="Human">Human</option>
+            <option value="Alien">Alien</option>
+          </select>
+        </div>
+        <button>Filther</button>
       </div>
-      <div className="pt-8 grid gap-2 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
+
+      <div className="pt-[50px] grid gap-2 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
         {myFavorites.map((char) => {
           return (
             <Card

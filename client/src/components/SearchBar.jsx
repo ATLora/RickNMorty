@@ -9,8 +9,14 @@ export default function SearchBar({ onSearch }) {
     console.log(event.target.value);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      onSearch(id);
+    }
+  };
+
   return (
-    <div>
+    <div tabIndex={0} onKeyDown={handleKeyPress}>
       <input
         type="search"
         value={id}
