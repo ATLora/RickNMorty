@@ -20,7 +20,11 @@ const Favorites = (props) => {
 
   return (
     <div className=" w-full min-h-screen bg-blue-900">
-      <div className="flex flex-row fixed">
+      <motion.div
+        className="flex flex-row fixed"
+        initial={{ x: -200 }}
+        whileHover={{ x: 0 }}
+      >
         <div className="h-[400px] w-[200px] bg-slate-500 border shadow-sm border-slate-600  flex  flex-col">
           <h2>appearance</h2>
           <select
@@ -52,8 +56,10 @@ const Favorites = (props) => {
             <option value="Alien">Alien</option>
           </select>
         </div>
-        <button>Filther</button>
-      </div>
+        <button className="text-gray-200 text-2xl h-12 border-2  border-green-600 bg-green-500 hover:bg-green-600 hover:border-green-700 py-1 px-2 rounded-sm">
+          Filther
+        </button>
+      </motion.div>
 
       <div className="pt-[50px] grid gap-2 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
         {myFavorites.map((char) => {
