@@ -62,7 +62,7 @@ const Form = ({ login }) => {
           <h1 className="flex flex-row justify-center text-4xl font-bold text-emerald-500">
             Log In
           </h1>
-          <div className="my-2 mx-3 flex flex-col text-gray-300">
+          <div className="my-2 mx-3 flex flex-col text-gray-100">
             <label>EMAIL: </label>
             <input
               type="email"
@@ -70,12 +70,12 @@ const Form = ({ login }) => {
               placeholder="email"
               name="email"
               onChange={handleChange}
-              className="rounded p-1 border-2 border-slate-700"
+              className="rounded p-1 border-2 border-slate-700 text-gray-700"
             />
             <p className="text-red-600 font-bold">{errors.email}</p>
           </div>
 
-          <div className="my-2 mx-3 flex flex-col text-gray-300">
+          <div className="my-2 mx-3 flex flex-col text-gray-100">
             <label>PASSWORD: </label>
             <input
               type="password"
@@ -83,7 +83,7 @@ const Form = ({ login }) => {
               placeholder="password"
               name="password"
               onChange={handleChange}
-              className="rounded p-1  border-2 border-slate-700"
+              className="rounded p-1  border-2 border-slate-700 text-gray-700"
             />
             <p className="text-red-600 font-bold">{errors.password}</p>
           </div>

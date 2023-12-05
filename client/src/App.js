@@ -32,18 +32,24 @@ function App() {
   }
 
   const onSearch = async (id) => {
-    const character = (
-      await axios(`http://localhost:3001/rickandmorty/character/${id}`)
-    ).data;
-    try {
-      if (character.name) {
-        setCharacters((oldChars) => [...oldChars, character]);
-      } else {
-        window.alert("¡No hay personajes con este ID!");
+    if (id > 826 || id == "") {
+      window.alert("Theres no character with that ID!");
+    } else if (!characters.some((c) => c.id === id)) {
+      const character = (
+        await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      ).data;
+      try {
+        if (character.name) {
+          setCharacters((oldChars) => [...oldChars, character]);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
+  };
+
+  const onSerchName = () => {
+    //This will handle text search
   };
 
   const onClose = (id) => {
