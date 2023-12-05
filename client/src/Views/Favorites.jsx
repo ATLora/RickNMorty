@@ -5,6 +5,7 @@ import {
   filtherBySpecies,
   filtherByStatus,
   orderCards,
+  resetFilthers,
 } from "../Redux/actions";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -31,6 +32,10 @@ const Favorites = (props) => {
     dispatch(filtherBySpecies(e.target.value));
   };
 
+  const handleReset = () => {
+    dispatch(resetFilthers());
+  };
+
   return (
     <div className=" w-full min-h-screen bg-blue-900">
       <motion.div
@@ -38,12 +43,13 @@ const Favorites = (props) => {
         initial={{ x: -200 }}
         whileHover={{ x: 0 }}
       >
-        <div className="h-[260px] w-[200px] bg-slate-500 border shadow-sm border-slate-600  flex  flex-col items-center justify-even">
-          <h2 className="text-gray-200 text-xl">appearance</h2>
+        <div className="h-[310px] w-[200px] bg-slate-500 border shadow-sm border-slate-600  flex  flex-col items-center justify-even">
+          <h2 className="text-gray-200 text-xl">Order</h2>
           <select
             onChange={handleOrder}
             className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]"
           >
+            <option value="PH">--------------</option>
             <option value="A">Ascendente</option>
             <option value="D">Descendente</option>
           </select>
@@ -52,6 +58,7 @@ const Favorites = (props) => {
             onChange={handleFilter}
             className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]"
           >
+            <option value="PH">--------------</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Genderless">Genderless</option>
@@ -62,6 +69,7 @@ const Favorites = (props) => {
             onChange={handleStatus}
             className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]"
           >
+            <option value="PH">--------------</option>
             <option value="Alive">Alive</option>
             <option value="Dead">Dead</option>
             <option value="unknown">unknown</option>
@@ -71,9 +79,16 @@ const Favorites = (props) => {
             onChange={handleSpecies}
             className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]"
           >
+            <option value="PH">--------------</option>
             <option value="Human">Human</option>
             <option value="Alien">Alien</option>
           </select>
+          <button
+            onClick={handleReset}
+            className="text-gray-200 text-xl mt-3 h-10 border-2  border-red-600 bg-red-500 hover:bg-red-600 hover:border-red-700 py-1 px-2 rounded-lg"
+          >
+            Clear All
+          </button>
         </div>
         <button className="text-gray-200 text-2xl h-12 border-2  border-green-600 bg-green-500 hover:bg-green-600 hover:border-green-700 py-1 px-2 rounded-sm">
           Filther

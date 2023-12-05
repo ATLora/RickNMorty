@@ -55,3 +55,9 @@ export const filtherBySpecies = (species) => {
     payload: species,
   };
 };
+
+export const resetFilthers = () => {
+  return {
+    type: "RESET",
+  };
+};
