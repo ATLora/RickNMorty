@@ -15,8 +15,22 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         myFavorites: copy3,
       };
+    case "STATUS":
+      let copy4 = state.allCharacters.filter((char) => char.status === payload);
+      return {
+        ...state,
+        myFavorites: copy4,
+      };
+    case "SPECIES":
+      let copy6 = state.allCharacters.filter(
+        (char) => char.species === payload
+      );
+      return {
+        ...state,
+        myFavorites: copy6,
+      };
     case "ORDER":
-      let copy4 = state.allCharacters.sort((a, b) => {
+      let copy5 = state.allCharacters.sort((a, b) => {
         if (payload === "A") {
           return a.id - b.id;
         } else if (payload === "D") {
@@ -27,7 +41,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       });
       return {
         ...state,
-        myFavorites: copy4,
+        myFavorites: copy5,
       };
     default:
       return state;

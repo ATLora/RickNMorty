@@ -41,3 +41,17 @@ export const orderCards = (order) => {
     payload: order,
   };
 };
+
+export const filtherByStatus = (status) => {
+  return {
+    type: "STATUS",
+    payload: status,
+  };
+};
+
+export const filtherBySpecies = (species) => {
+  return {
+    type: "SPECIES",
+    payload: species,
+  };
+};

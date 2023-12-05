@@ -1,6 +1,11 @@
 import { connect, useDispatch } from "react-redux";
 import Card from "../components/Card";
-import { filterCards, orderCards } from "../Redux/actions";
+import {
+  filterCards,
+  filtherBySpecies,
+  filtherByStatus,
+  orderCards,
+} from "../Redux/actions";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -18,6 +23,14 @@ const Favorites = (props) => {
     dispatch(filterCards(e.target.value));
   };
 
+  const handleStatus = (e) => {
+    dispatch(filtherByStatus(e.target.value));
+  };
+
+  const handleSpecies = (e) => {
+    dispatch(filtherBySpecies(e.target.value));
+  };
+
   return (
     <div className=" w-full min-h-screen bg-blue-900">
       <motion.div
@@ -25,8 +38,8 @@ const Favorites = (props) => {
         initial={{ x: -200 }}
         whileHover={{ x: 0 }}
       >
-        <div className="h-[400px] w-[200px] bg-slate-500 border shadow-sm border-slate-600  flex  flex-col">
-          <h2>appearance</h2>
+        <div className="h-[260px] w-[200px] bg-slate-500 border shadow-sm border-slate-600  flex  flex-col items-center justify-even">
+          <h2 className="text-gray-200 text-xl">appearance</h2>
           <select
             onChange={handleOrder}
             className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]"
@@ -34,7 +47,7 @@ const Favorites = (props) => {
             <option value="A">Ascendente</option>
             <option value="D">Descendente</option>
           </select>
-          <h2>Gender</h2>
+          <h2 className="text-gray-200 text-xl">Gender</h2>
           <select
             onChange={handleFilter}
             className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]"
@@ -44,14 +57,20 @@ const Favorites = (props) => {
             <option value="Genderless">Genderless</option>
             <option value="unknown">unknown</option>
           </select>
-          <h2>Status</h2>
-          <select className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]">
+          <h2 className="text-gray-200 text-xl">Status</h2>
+          <select
+            onChange={handleStatus}
+            className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]"
+          >
             <option value="Alive">Alive</option>
             <option value="Dead">Dead</option>
             <option value="unknown">unknown</option>
           </select>
-          <h2>Species</h2>
-          <select className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]">
+          <h2 className="text-gray-200 text-xl">Species</h2>
+          <select
+            onChange={handleSpecies}
+            className="bg-gray-200 border border-gray-900 text-slate-500 text-xl rounded-lg w-[180px]"
+          >
             <option value="Human">Human</option>
             <option value="Alien">Alien</option>
           </select>
