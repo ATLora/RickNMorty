@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+//* Search Bar
+
 export default function SearchBar({ onSearch }) {
   const [id, setId] = useState("");
 

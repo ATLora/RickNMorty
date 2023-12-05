@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import title from "../Assets/title.png";
 import { useState } from "react";
 
+//* NavBar, will have navigation for desktop and mobile and the search bar
+
 export default function Nav({ onSearch }) {
   const [nav, setNav] = useState(false);
   const handleClick = () => {
@@ -27,6 +29,9 @@ export default function Nav({ onSearch }) {
           className="h-[55px] w-[220px]"
         />
       </div>
+
+      {/* {Desktop Menu} */}
+
       <div className="hidden md:flex text-emerald-500">
         <Link to="/home">
           {pathname === "/home" ? (
@@ -83,6 +88,8 @@ export default function Nav({ onSearch }) {
           </button>
         </div>
       </div>
+
+      {/* {Mobile Menu} */}
 
       <ul
         className={

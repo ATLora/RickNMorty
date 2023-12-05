@@ -4,6 +4,8 @@ import splash from "../Assets/splash.png";
 import title from "../Assets/title.png";
 import { motion } from "framer-motion";
 
+//* Landing page, Sign In/Log In
+
 const Form = ({ login }) => {
   const [userData, setUserData] = useState({
     email: "",

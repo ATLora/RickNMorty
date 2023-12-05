@@ -3,6 +3,7 @@ import { addFav, removeFav } from "../Redux/actions";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 
+//* This Component will vuild each individual character card and will use redux to handle favorites
 const Card = (props) => {
   const {
     onClose,

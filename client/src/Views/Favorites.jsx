@@ -37,6 +37,8 @@ const Favorites = (props) => {
   };
 
   return (
+    //* SLideBar Filther Menu
+
     <div className=" w-full min-h-screen bg-blue-900">
       <motion.div
         className="flex flex-row fixed"
@@ -94,6 +96,8 @@ const Favorites = (props) => {
           Filther
         </button>
       </motion.div>
+
+      {/* {Display Favorites} */}
 
       <div className="pt-[50px] grid gap-2 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
         {myFavorites.map((char) => {

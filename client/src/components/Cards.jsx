@@ -1,5 +1,6 @@
 import Card from "./Card";
 
+//* This component will display each character Card, recives props an array of characters
 export default function Cards({ characters, onClose }) {
   return (
     <div className="pt-8 w-full min-h-screen bg-blue-900 grid gap-2 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">

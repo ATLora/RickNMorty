@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 
+//* Show more information about each character
 export default function Detail() {
   const { id } = useParams();
   const [character, setCharacter] = useState({});
